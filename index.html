@@ -60,6 +60,9 @@
 </head>
 <body>
 
+    <!-- Аудио элемент -->
+    <audio id="donkey-sound" src="sound.mp3" preload="auto"></audio>
+
     <!-- ЭКРАН 1: Ввод имени -->
     <div id="step1" class="card">
         <h2>Привет КТИ-шник! 👋</h2>
@@ -82,6 +85,12 @@
                 alert("Пожалуйста, введи имя!");
                 return;
             }
+
+            // Запуск аудиозаписи
+            const audio = document.getElementById('donkey-sound');
+            audio.play().catch(error => {
+                console.log("Ошибка воспроизведения звука:", error);
+            });
 
             // Обращение по имени на финальном экране
             document.getElementById('prank-text').innerText = `${name}, не будь послушным как я !)))`;
